@@ -114,4 +114,16 @@ private static void inscribirseEvento() {
         System.out.println("Número de evento inválido.");
     }
 }
+public static void mostrarInscripciones() {
+    if (inscripciones.isEmpty()) {
+        System.out.println("No hay inscripciones registradas.");
+        return;
+    }
+
+    System.out.println("\nInscripciones por evento:");
+    for (int i = 0; i < nombresEventos.size(); i++) {
+        String nombreEvento = nombresEventos.get(i);
+        System.out.println(nombreEvento + " - " + fechasEventos.get(i) + " - " + lugaresEventos.get(i) + ": " + inscripciones.get(nombreEvento));
+    }
+}
 

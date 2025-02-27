@@ -56,7 +56,7 @@ public static int obtenerOpcion() {
         return -1;
     }
 }
-private static void agregarEvento() {
+public static void agregarEvento() {
     scanner.nextLine();
     System.out.print("Ingrese el nombre del evento: ");
     String nombre = scanner.nextLine();
@@ -73,4 +73,15 @@ private static void agregarEvento() {
     inscripciones.put(nombre, new ArrayList<>());
 
     System.out.println("Evento agregado con éxito.");
+}
+public static void listarEventos() {
+    if (nombresEventos.isEmpty()) {
+        System.out.println("No hay eventos registrados.");
+        return;
+    }
+
+    System.out.println("\nLista de eventos:");
+    for (int i = 0; i < nombresEventos.size(); i++) {
+        System.out.println((i + 1) + ". " + nombresEventos.get(i) + " - " + fechasEventos.get(i) + " - " + lugaresEventos.get(i));
+    }
 }

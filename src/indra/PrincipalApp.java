@@ -38,7 +38,7 @@ public static void main(String[] args) {
         }
     }
 }
-private static void mostrarMenu() {
+public static void mostrarMenu() {
     System.out.println("\n===== MENÚ PRINCIPAL =====");
     System.out.println("1. Agregar evento");
     System.out.println("2. Listar eventos");
@@ -46,4 +46,31 @@ private static void mostrarMenu() {
     System.out.println("4. Mostrar inscripciones");
     System.out.println("5. Salir");
     System.out.print("Seleccione una opción: ");
+}
+public static int obtenerOpcion() {
+    try {
+        return scanner.nextInt();
+    } catch (InputMismatchException e) {
+        System.out.println("Error: Debe ingresar un número válido.");
+        scanner.nextLine();
+        return -1;
+    }
+}
+private static void agregarEvento() {
+    scanner.nextLine();
+    System.out.print("Ingrese el nombre del evento: ");
+    String nombre = scanner.nextLine();
+    
+    System.out.print("Ingrese la fecha del evento (DD/MM/AAAA): ");
+    String fecha = scanner.nextLine();
+
+    System.out.print("Ingrese el lugar del evento: ");
+    String lugar = scanner.nextLine();
+
+    nombresEventos.add(nombre);
+    fechasEventos.add(fecha);
+    lugaresEventos.add(lugar);
+    inscripciones.put(nombre, new ArrayList<>());
+
+    System.out.println("Evento agregado con éxito.");
 }

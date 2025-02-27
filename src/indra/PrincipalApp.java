@@ -85,3 +85,33 @@ public static void listarEventos() {
         System.out.println((i + 1) + ". " + nombresEventos.get(i) + " - " + fechasEventos.get(i) + " - " + lugaresEventos.get(i));
     }
 }
+private static void inscribirseEvento() {
+    if (nombresEventos.isEmpty()) {
+        System.out.println("No hay eventos disponibles para inscripción.");
+        return;
+    }
+
+    scanner.nextLine();
+    System.out.print("Ingrese su nombre: ");
+    String nombreUsuario = scanner.nextLine();
+    
+    listarEventos();
+    System.out.print("Ingrese el número del evento: ");
+    
+    int eventoIndex = obtenerOpcion() - 1;
+    scanner.nextLine();
+    
+    if (eventoIndex >= 0 && eventoIndex < nombresEventos.size()) {
+        String nombreEvento = nombresEventos.get(eventoIndex);
+
+        if (!inscripciones.get(nombreEvento).contains(nombreUsuario)) {
+            inscripciones.get(nombreEvento).add(nombreUsuario);
+            System.out.println("Inscripción exitosa en " + nombreEvento);
+        } else {
+            System.out.println("Ya estás inscrito en este evento.");
+        }
+    } else {
+        System.out.println("Número de evento inválido.");
+    }
+}
+

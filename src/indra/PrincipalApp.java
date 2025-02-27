@@ -38,3 +38,12 @@ public static void main(String[] args) {
         }
     }
 }
+private static void mostrarMenu() {
+    System.out.println("\n===== MENÚ PRINCIPAL =====");
+    System.out.println("1. Agregar evento");
+    System.out.println("2. Listar eventos");
+    System.out.println("3. Inscribirse a un evento");
+    System.out.println("4. Mostrar inscripciones");
+    System.out.println("5. Salir");
+    System.out.print("Seleccione una opción: ");
+}
